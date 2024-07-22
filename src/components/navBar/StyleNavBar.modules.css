@@ -15,8 +15,9 @@ header nav {
   height: 100%;
   border: 1px solid red;
 }
-header nav button {
+header nav .buttonsNav {
   border: none;
+  padding: 1em;
   border-radius: 20px;
   background: transparent;
 }/*# sourceMappingURL=StyleNavBar.modules.css.map */

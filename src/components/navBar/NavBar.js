@@ -1,12 +1,23 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link,useLocation } from "react-router-dom";
 import "./StyleNavBar.modules.css"
 
 export default function NavBar(){
 
 
-const[Button, setButton]=useState(false); // o erro ta aqui !!!
+const[Button, setButton]=useState(false);
+const location = useLocation();
+
+
+useEffect(() => {
+    if (location.pathname === "/Sobre") {
+      setButton(true);
+    } else {
+      setButton(false);
+    }
+  }, [location.pathname]);
 
 const StyleButton = {
 
@@ -25,12 +36,14 @@ return(
 
 <nav>
 
-<Link style={StyleButton} to="/" >
-<button  onClick={()=>{setButton(false); console.log("home ativado")}}>Home</button>
+<Link style={StyleButton}
+to="/">
+Home
 </Link>
 
-<Link style={StyleButton} to="/Sobre">
-<button  onClick={()=>{setButton(true); console.log("sobre ativado")}}>Sobre</button>
+<Link style={StyleButton}
+to="/Sobre">
+Sobre
 </Link>
 
 </nav>
