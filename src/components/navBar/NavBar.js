@@ -1,6 +1,4 @@
-
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 import { Link,useLocation } from "react-router-dom";
 import "./StyleNavBar.modules.css"
 
@@ -8,6 +6,7 @@ export default function NavBar(){
 
 
 const[Button, setButton]=useState(false);
+const[Produto, setProduto] = useState();
 const location = useLocation();
 
 
@@ -17,7 +16,9 @@ useEffect(() => {
     } else {
       setButton(false);
     }
-  }, [location.pathname]);
+}, [location.pathname]);
+
+
 
 const StyleButton = {
 
@@ -28,7 +29,17 @@ color: "#000",
 
 }
 
-console.log(Button)
+const handleBlur = (e) => {
+
+e.preventDefault();
+const ID = document.getElementById("CampoPesquisa").value;
+const ProdutoID = `/produto/${ID}`;
+
+setProduto(ProdutoID)
+
+}
+
+console.log(Produto)
 
 return(
 
@@ -45,6 +56,10 @@ Home
 to="/Sobre">
 Sobre
 </Link>
+
+<input id="CampoPesquisa" onBlur={handleBlur} type="text" placeholder="Produtos..." />
+
+<Link style={StyleButton} to={Produto} >Pesquisar</Link>
 
 </nav>
 
