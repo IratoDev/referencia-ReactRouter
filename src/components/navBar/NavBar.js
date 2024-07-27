@@ -94,7 +94,7 @@ Home
 
 <Link style={StyleButton}
 to="/Sobre">
-Sobre
+Ferramentas
 </Link>
 
 <input id="CampoPesquisa" onBlur={handleBlur} type="text" placeholder="Produtos..." />
