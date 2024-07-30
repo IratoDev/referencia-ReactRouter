@@ -1,103 +1,396 @@
 [
-
-{
-"id":"1", 
-
-"title": "Ferramenta1",
-"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-"advantages": [
-"Vantagens",
-
-  "opção",
-  "opção",
-  "opção"
-],
-"disadvantages": [
-
-  "Desvantagens",
-
-  "opção",
-  "opção",
-  "opção"
-],
-
-"use_cases":[ 
-
-"Quando usar",
-
-"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
-],
-
-"syntax": [
-
-"Sintax:", 
-
-"import { BrowserRouter as Router } from 'react-router-dom';",
-
-"function App() {",
-
-"return (",
-
-"<Router>",
-
-"{/* Your routes here */}",
-
-"</Router>);",
-
-"}"
-
-]
-
-},
-
-{
-  "id":"2", 
-  
-  "title": "Ferramenta2",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "advantages": [
-  "Vantagens",
-  
-    "opção",
-    "opção",
-    "opção"
-  ],
-  "disadvantages": [
-  
-    "Desvantagens",
-  
-    "opção",
-    "opção",
-    "opção"
-  ],
-  
-  "use_cases":[ 
-  
-  "Quando usar",
-  
-  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
-  ],
-  
- "syntax": [
-
-"Sintax:", 
-
-"import { BrowserRouter as Router } from 'react-router-dom';",
-
-"function App() {",
-
-"return (",
-
-"<Router>",
-
-"{/* Your routes here */}",
-
-"</Router>);",
-
-"}"
-
-]
-  
-  } 
-
+  {
+    "id": "1",
+    "title": "BrowserRouter",
+    "description": "Um roteador que usa a API de histórico HTML5 para manter a IU sincronizada com a URL.",
+    "advantages": [
+      "Integra-se com a API de histórico HTML5, permitindo URLs limpas e navegáveis.",
+      "Permite navegação e manipulação do histórico do navegador.",
+      "Suporta rotas aninhadas, facilitando a construção de hierarquias de rotas."
+    ],
+    "disadvantages": [
+      "Pode exigir configuração adicional no servidor para lidar com o roteamento do lado do cliente.",
+      "Não é compatível com navegadores que não suportam a API de histórico HTML5."
+    ],
+    "use_cases": [
+      "Ideal para aplicações de página única (SPAs) onde o controle do histórico de navegação é essencial.",
+      "Quando se deseja uma navegação mais natural e limpa, semelhante às aplicações nativas."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { BrowserRouter as Router } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <Router>",
+      "      {/* Suas rotas aqui */}",
+      "    </Router>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "2",
+    "title": "HashRouter",
+    "description": "Um roteador que utiliza a parte do hash da URL para manter a IU sincronizada com a URL.",
+    "advantages": [
+      "Não requer configuração do servidor, pois usa o hash na URL.",
+      "Compatível com a maioria dos navegadores, incluindo navegadores mais antigos."
+    ],
+    "disadvantages": [
+      "URLs baseadas em hash não são tão amigáveis para SEO como URLs limpas.",
+      "Não se integra com a API de histórico HTML5, limitando algumas funcionalidades avançadas."
+    ],
+    "use_cases": [
+      "Quando não é possível configurar o servidor para roteamento ou quando se está trabalhando em projetos mais antigos.",
+      "Para aplicações que precisam ser compatíveis com navegadores mais antigos."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { HashRouter as Router } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <Router>",
+      "      {/* Suas rotas aqui */}",
+      "    </Router>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "3",
+    "title": "MemoryRouter",
+    "description": "Um roteador que mantém a navegação em memória, ideal para testes e ambientes não baseados em URL.",
+    "advantages": [
+      "Não requer configuração do servidor e não afeta a URL no navegador.",
+      "Ideal para testes e ambientes onde a URL não é necessária."
+    ],
+    "disadvantages": [
+      "Não mantém o estado da navegação entre recarregamentos da página.",
+      "Não é adequado para aplicações de produção onde o estado da URL é necessário."
+    ],
+    "use_cases": [
+      "Para testar componentes de roteamento em ambientes onde a URL não é relevante.",
+      "Quando a navegação precisa ser gerenciada em memória, sem afetar a URL do navegador."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { MemoryRouter } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <MemoryRouter>",
+      "      {/* Suas rotas aqui */}",
+      "    </MemoryRouter>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "4",
+    "title": "StaticRouter",
+    "description": "Um roteador usado principalmente no lado do servidor para renderização no servidor (SSR) e para simular o roteamento.",
+    "advantages": [
+      "Ideal para renderização do lado do servidor e simulação de roteamento em ambientes não baseados em navegador.",
+      "Permite passar a localização como uma prop para o roteador."
+    ],
+    "disadvantages": [
+      "Não é adequado para aplicações no cliente onde o histórico é necessário.",
+      "Não gerencia o histórico do navegador."
+    ],
+    "use_cases": [
+      "Para aplicações que fazem renderização no lado do servidor (SSR).",
+      "Quando você precisa simular o roteamento em ambientes não baseados em navegador."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { StaticRouter } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <StaticRouter location='/caminho'>",
+      "      {/* Suas rotas aqui */}",
+      "    </StaticRouter>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "5",
+    "title": "Route",
+    "description": "O componente Route é usado para definir um caminho e o componente que deve ser renderizado quando o caminho é correspondido.",
+    "advantages": [
+      "Permite renderização dinâmica de rotas.",
+      "Suporta rotas aninhadas, permitindo estruturas de navegação mais complexas."
+    ],
+    "disadvantages": [
+      "Pode se tornar complexo com rotas profundamente aninhadas.",
+      "Requer gerenciamento cuidadoso dos caminhos e componentes das rotas."
+    ],
+    "use_cases": [
+      "Para definir diferentes visões em uma aplicação de página única.",
+      "Quando o roteamento precisa ser renderizado condicionalmente com base na URL."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { Route } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <Route path='/caminho' component={Componente} />",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "6",
+    "title": "Switch",
+    "description": "O componente Switch é usado para renderizar apenas a primeira rota correspondente entre seus filhos.",
+    "advantages": [
+      "Garante que apenas uma rota seja renderizada por vez.",
+      "Simplifica a lógica de renderização de rotas."
+    ],
+    "disadvantages": [
+      "Pode levar a estruturas de roteamento complexas se usado em excesso.",
+      "As rotas precisam estar em uma ordem específica para garantir a renderização correta."
+    ],
+    "use_cases": [
+      "Quando você precisa renderizar apenas a primeira rota que corresponde à URL.",
+      "Para evitar a renderização de múltiplas rotas simultaneamente."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { Switch, Route } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <Switch>",
+      "      <Route path='/caminho1' component={Componente1} />",
+      "      <Route path='/caminho2' component={Componente2} />",
+      "    </Switch>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "7",
+    "title": "Redirect",
+    "description": "O componente Redirect é usado para redirecionar a navegação para outra rota.",
+    "advantages": [
+      "Facilita a navegação automática para outra rota.",
+      "Útil para redirecionar usuários após ações como login ou logout."
+    ],
+    "disadvantages": [
+      "Pode criar rotas inesperadas se não for usado corretamente.",
+      "Pode levar a ciclos de redirecionamento se não for configurado adequadamente."
+    ],
+    "use_cases": [
+      "Quando você precisa redirecionar automaticamente o usuário para uma nova rota.",
+      "Para gerenciar redirecionamentos após ações como login ou logout."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { Redirect } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <Redirect to='/nova-rota' />",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "8",
+    "title": "Link",
+    "description": "O componente Link é usado para criar links de navegação entre diferentes rotas da aplicação.",
+    "advantages": [
+      "Facilita a navegação entre diferentes rotas sem recarregar a página.",
+      "Permite a navegação programática com links de acesso direto."
+    ],
+    "disadvantages": [
+      "Não suporta navegação externa, apenas dentro da aplicação React.",
+      "Pode ser confuso se usado fora do contexto de roteamento."
+    ],
+    "use_cases": [
+      "Para criar links de navegação dentro da aplicação React.",
+      "Quando você precisa de uma navegação interna sem recarregar a página."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { Link } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <Link to='/caminho'>Ir para Caminho</Link>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "9",
+    "title": "NavLink",
+    "description": "O componente NavLink é semelhante ao Link, mas com suporte adicional para estilos ativos.",
+    "advantages": [
+      "Suporte integrado para estilos ativos baseados na URL atual.",
+      "Facilita a criação de navegação com estilo visual para a rota ativa."
+    ],
+    "disadvantages": [
+      "Pode ser excessivo se você não precisa de estilos ativos.",
+      "Pode causar problemas de desempenho se usado em grandes listas de links."
+    ],
+    "use_cases": [
+      "Quando você precisa destacar a rota ativa com estilos personalizados.",
+      "Para criar menus de navegação que refletem a rota atual."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { NavLink } from 'react-router-dom';",
+      "function App() {",
+      "  return (",
+      "    <NavLink to='/caminho' activeClassName='ativo'>Ir para Caminho</NavLink>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "10",
+    "title": "useParams",
+    "description": "Um hook que fornece acesso aos parâmetros da rota atual.",
+    "advantages": [
+      "Permite acessar e utilizar parâmetros da URL facilmente.",
+      "Ideal para casos onde os parâmetros da URL são necessários no componente."
+    ],
+    "disadvantages": [
+      "Não fornece informações sobre a URL completa ou o histórico.",
+      "Pode ser excessivo se você não precisa de parâmetros da rota."
+    ],
+    "use_cases": [
+      "Quando você precisa acessar parâmetros da URL para renderizar conteúdo dinâmico.",
+      "Para componentes que dependem de parâmetros específicos da rota."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { useParams } from 'react-router-dom';",
+      "function MeuComponente() {",
+      "  const { id } = useParams();",
+      "  return (",
+      "    <div>ID da Rota: {id}</div>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "11",
+    "title": "useLocation",
+    "description": "Um hook que fornece acesso ao objeto de localização, incluindo o caminho, busca e estado.",
+    "advantages": [
+      "Permite acessar detalhes completos sobre a URL atual.",
+      "Útil para ler e reagir a mudanças na URL."
+    ],
+    "disadvantages": [
+      "Pode ser excessivo se você só precisa de informações básicas de URL.",
+      "Não deve ser usado para navegação programática."
+    ],
+    "use_cases": [
+      "Quando você precisa acessar detalhes completos sobre a URL atual.",
+      "Para componentes que reagem a mudanças na URL, como filtros ou parâmetros de busca."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { useLocation } from 'react-router-dom';",
+      "function MeuComponente() {",
+      "  const location = useLocation();",
+      "  return (",
+      "    <div>URL Atual: {location.pathname}</div>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "12",
+    "title": "useHistory",
+    "description": "Um hook que fornece acesso ao objeto de histórico, permitindo navegação programática e manipulação do histórico de navegação.",
+    "advantages": [
+      "Permite navegação programática e manipulação do histórico.",
+      "Útil para redirecionamentos e navegação com base em ações do usuário."
+    ],
+    "disadvantages": [
+      "Não deve ser usado para navegação baseada em links.",
+      "Pode levar a confusão se usado de forma excessiva ou inadequada."
+    ],
+    "use_cases": [
+      "Quando você precisa redirecionar o usuário programaticamente.",
+      "Para controlar o histórico de navegação com base em ações, como envios de formulários."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { useHistory } from 'react-router-dom';",
+      "function MeuComponente() {",
+      "  const history = useHistory();",
+      "  return (",
+      "    <button onClick={() => history.push('/nova-rota')}>Ir para nova rota</button>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "13",
+    "title": "Outlet",
+    "description": "Um componente que renderiza um componente aninhado baseado na rota correspondente.",
+    "advantages": [
+      "Permite renderizar componentes filhos baseados na rota atual.",
+      "Facilita a criação de layouts aninhados e estruturas de navegação."
+    ],
+    "disadvantages": [
+      "Pode ser complexo se usado em conjunto com muitas rotas aninhadas.",
+      "Pode exigir gerenciamento adicional para renderização condicional."
+    ],
+    "use_cases": [
+      "Para criar layouts e rotas aninhadas.",
+      "Quando você precisa renderizar componentes filhos com base na rota atual."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { Outlet } from 'react-router-dom';",
+      "function MeuComponente() {",
+      "  return (",
+      "    <Outlet />",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  },
+  {
+    "id": "14",
+    "title": "useNavigate",
+    "description": "Um hook que permite a navegação programática dentro da aplicação.",
+    "advantages": [
+      "Permite navegação programática com base em ações do usuário.",
+      "Útil para redirecionamentos e navegação dinâmica."
+    ],
+    "disadvantages": [
+      "Não deve ser usado para navegação baseada em links.",
+      "Pode levar a confusão se usado em excesso."
+    ],
+    "use_cases": [
+      "Quando você precisa redirecionar o usuário para uma nova rota programaticamente.",
+      "Para navegação dinâmica baseada em ações do usuário."
+    ],
+    "syntax": [
+      "Sintaxe:",
+      "import { useNavigate } from 'react-router-dom';",
+      "function MeuComponente() {",
+      "  const navigate = useNavigate();",
+      "  return (",
+      "    <button onClick={() => navigate('/nova-rota')}>Ir para nova rota</button>",
+      "  );",
+      "}"
+    ],
+    "legacy": false
+  }
 ]

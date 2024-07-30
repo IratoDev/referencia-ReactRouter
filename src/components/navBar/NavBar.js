@@ -45,6 +45,8 @@ useEffect(() => {
 
 
 const getBackgroundColor = (status) => {
+
+  
   switch (status) {
     case "Home":
       return "#045cff";
@@ -64,7 +66,7 @@ const StyleButton = {
 padding: "1em",
 borderRadius: "20px",
 backgroundColor: getBackgroundColor(State.ativo),
-color: "#292828",
+color: (State.ativo === "Error" || State.ativo === "Produto" ? "#fff":"#292828"),
 
 }
 
@@ -78,8 +80,7 @@ setProduto(ProdutoID)
 
 }
 
-console.log(State)
-console.log(Produto)
+
 
 return(
 

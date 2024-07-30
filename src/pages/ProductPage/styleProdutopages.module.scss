@@ -1,33 +1,31 @@
 
 #ConteinerProdutoPages{
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 100%;
-    background-color: #003811;
-    
-    .BoxText{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    width: 80%;
-    height: 60%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
-    h1{
-    color: #fff;
-    }
+width: 100%;
+height: 100vh;
+background-color: #003811;
 
-    p{
-    color: #fff;
-    }
-    
-    }
-    
-    }
+h1{
+color: #fff;
+}
+
+h3{
+color: #fff;
+}
+
+li{
+color: #fff;
+}
+
+p{
+color: #fff;
+}
+
+
+}
     

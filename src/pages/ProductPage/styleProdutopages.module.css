@@ -4,19 +4,18 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #003811;
 }
-#ConteinerProdutoPages .BoxText {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  height: 60%;
-}
-#ConteinerProdutoPages .BoxText h1 {
+#ConteinerProdutoPages h1 {
   color: #fff;
 }
-#ConteinerProdutoPages .BoxText p {
+#ConteinerProdutoPages h3 {
+  color: #fff;
+}
+#ConteinerProdutoPages li {
+  color: #fff;
+}
+#ConteinerProdutoPages p {
   color: #fff;
 }/*# sourceMappingURL=styleProdutopages.module.css.map */

@@ -10,6 +10,18 @@ return(
 <div id={StyleModal.ConteinerModel}>
 <Ferramentas id="1"/>
 <Ferramentas id="2"/>
+<Ferramentas id="3"/>
+<Ferramentas id="4"/>
+<Ferramentas id="5"/>
+<Ferramentas id="6"/>
+<Ferramentas id="7"/>
+<Ferramentas id="8"/>
+<Ferramentas id="9"/>
+<Ferramentas id="10"/>
+<Ferramentas id="11"/>
+<Ferramentas id="12"/>
+<Ferramentas id="13"/>
+<Ferramentas id="14"/>
 
 </div>
 
@@ -17,7 +29,7 @@ return(
 
 }
 
-function Ferramentas({id}){
+export function Ferramentas({id}){
 
 const [Data, setData]=useState([]);
 
@@ -51,18 +63,18 @@ return(
       <p>{item.description}</p>
 
       <h3>{item.advantages[0]}</h3>
-      <ol>
+      <ul>
         {item.advantages.slice(1).map((advantage, index) => (
           <li key={index}>{advantage}</li>
         ))}
-      </ol>
+      </ul>
 
       <h3>{item.disadvantages[0]}</h3>
-      <ol>
+      <ul>
         {item.disadvantages.slice(1).map((disadvantage, index) => (
           <li key={index}>{disadvantage}</li>
         ))}
-      </ol>
+      </ul>
 
       <h3>{item.use_cases[0]}</h3>
       {item.use_cases.slice(1).map((use_case, index) => (
